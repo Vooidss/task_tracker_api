@@ -11,8 +11,9 @@ import java.util.List;
 @Entity
 @Getter //( @Data )
 @Setter
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "project")
 @FieldDefaults ( level = AccessLevel.PRIVATE)
 public class ProjectEntity {
@@ -22,16 +23,15 @@ public class ProjectEntity {
     Long id;
     @Column(unique = true) // Поле должно быть уникальным
     String name;
+    String ordinal;
 
-
-    @Builder.Default
     Instant createdAt = Instant.now();
 
+    String descraption;
 
     /*If @Data ->
      @EqualsAndHashCode.Exclude
      @ToString.Exclude*/
-    @Builder.Default
     @OneToMany(fetch = FetchType.LAZY)
     List<TaskStateEntity> taskStates = new ArrayList<>();
 
