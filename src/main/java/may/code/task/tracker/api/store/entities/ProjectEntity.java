@@ -30,9 +30,9 @@ public class ProjectEntity {
     String descraption;
 
     /*If @Data ->
-     @EqualsAndHashCode.Exclude
-     @ToString.Exclude*/
+     @EqualsAndHashCode.Exclude     @ToString.Exclude*/
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id",referencedColumnName = "id")
     List<TaskStateEntity> taskStates = new ArrayList<>();
 
 }

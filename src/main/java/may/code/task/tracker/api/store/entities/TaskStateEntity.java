@@ -28,5 +28,6 @@ public class TaskStateEntity {
     Instant createdAt = Instant.now();
 
     @OneToMany(fetch = FetchType.LAZY)
-    List<TaskStateEntity> tasksStates = new ArrayList<>();;
+    @JoinColumn (name = "task_state_id", referencedColumnName = "id")
+    List<TaskStateEntity> tasksStates = new ArrayList<>();
 }
