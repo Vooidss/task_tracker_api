@@ -25,6 +25,12 @@ public class TaskStateEntity {
     @Column(unique = true)
     String name;
 
+    Long ordinal;
+
+    @Builder.Default
+    Instant updateAt = Instant.now();
+
+    @Builder.Default
     Instant createdAt = Instant.now();
 
     @OneToMany(fetch = FetchType.LAZY)

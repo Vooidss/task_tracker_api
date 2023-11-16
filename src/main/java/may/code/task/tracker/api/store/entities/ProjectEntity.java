@@ -23,11 +23,13 @@ public class ProjectEntity {
     Long id;
     @Column(unique = true) // Поле должно быть уникальным
     String name;
-    String ordinal;
 
+    @Builder.Default
     Instant createdAt = Instant.now();
 
-    String descraption;
+    @Builder.Default
+    Instant updateAt = Instant.now();
+
 
     /*If @Data ->
      @EqualsAndHashCode.Exclude     @ToString.Exclude*/

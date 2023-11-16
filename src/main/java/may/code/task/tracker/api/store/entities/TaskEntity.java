@@ -17,12 +17,20 @@ import java.util.List;
 @Table(name = "task")
 @FieldDefaults( level = AccessLevel.PRIVATE)
 public class TaskEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
+
     @Column(unique = true)
     String name;
 
+    String description;
+
+    @Builder.Default
+    Instant updateAt = Instant.now();
+
+    @Builder.Default
     Instant createdAt = Instant.now();
 
     @OneToMany(fetch = FetchType.LAZY)
