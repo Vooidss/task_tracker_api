@@ -19,6 +19,7 @@ public class TaskDto {
 
     String name;
 
+    @Builder.Default
     @JsonProperty("created_At")
     Instant createdAt = Instant.now();
 

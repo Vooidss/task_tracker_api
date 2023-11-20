@@ -33,6 +33,7 @@ public class TaskEntity {
     @Builder.Default
     Instant createdAt = Instant.now();
 
+    @Builder.Default
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name ="task_id",referencedColumnName = "id")
     List<TaskStateEntity> task = new ArrayList<>();
